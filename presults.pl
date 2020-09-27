@@ -16,7 +16,7 @@ my $MIN_KOMI = -20;
 my $MAX_KOMI = 20;
 my $CHECK_DAY = 1;
 my $DONT_CHECK_DAY = 0;
-my $MAX_ROUNDS = 16;
+my $MAX_ROUNDS = 9;
 
 # if $exactness does not include last_name then TMP11 of 20090103jujoopen.in 
 # becomes Joseph A. Berry which is not right.   11 should be 10800 Xiao, Qiang.
@@ -1315,8 +1315,7 @@ sub parse($$) {
 		$line =~ m/^\w*\d+\s+\w*\d+\s+[WwBb]\s+\d\s+[-]*\d+/ or
 		$line =~ m/^\w*\d+\s+\w*\d+\s+[WwBb]F\s+\d\s+[-]*\d+/ or
 		$line =~ m/^\w*\d+\s+\w*\d+\s+[WwBb]\s+\d/ or
-		$line =~ m/^\w*\d+\s+\w*\d+\s+[WwBb][\s#
-]*$/ ) {
+		$line =~ m/^\w*\d+\s+\w*\d+\s+[WwBb][\s#]*$/ ) {
 		print "parse(game_2): found game: $line\n" if ($verbose =~ m/:parse:/ or $verbose =~ m/:parse_games:/);
 		my ( $white, $black, $result, $handicap, $komi, @etc) = split(/ /, $line);
 		my $exclude = 0;					# 20131017
@@ -1449,10 +1448,8 @@ sub parse($$) {
 #before outer while : 'USA9149'
 #after outer while: 'USA9149'
 #
-	elsif (	$line =~ m/^[A-Za-z]*\d+
-{0,}$/ ) {
-		while ( $line =~ m/^([A-Za-z]*\d+)
-{0,}$/ ) {
+	elsif (	$line =~ m/^[A-Za-z]*\d+{0,}$/ ) {
+		while ( $line =~ m/^([A-Za-z]*\d+){0,}$/ ) {
 			my $id = $1;
 			print "parse(): found multi-line player: $line\n" if ($verbose =~ m/:parse:/);
 			$id = lc($id);
@@ -1461,8 +1458,7 @@ sub parse($$) {
 			$id = $IdChanges{$id} if (exists($IdChanges{$id})); # IdChanges: PinChanges -> Player_Variations
 			while ($line = <FILE>) {
 				$line = prep_line($line);
-				if ( $line =~ m/^(\d+)
-{0,}$/ ) {
+				if ( $line =~ m/^(\d+){0,}$/ ) {
 					$id = $1;
 					# print "id: '$id', '$line'\n";
 					# print "TempIDs: " . Dumper(\%TempIDs) . "\n";
@@ -1682,8 +1678,7 @@ sub parse($$) {
 # 0
 ###
 	elsif (	$line =~ m/^\s*$/ or
-		$line =~ m/^
-$/ or
+		$line =~ m/^$/ or
 		$line =~ m/^$/ or
 		$line =~ m/^#*$/ or
 		$line =~ m/^#\s*0\s*$/ or
@@ -2134,8 +2129,7 @@ sub prep_line($) {
 	$line =~ s/^\s+//;
 	$line =~ s/\s+$//;
 	$line =~ s/\s+/ /g;
-	$line =~ s/
-//;
+	$line =~ s///;
 	return ($line);
 }
 
