@@ -16,7 +16,7 @@ my $MIN_KOMI = -20;
 my $MAX_KOMI = 20;
 my $CHECK_DAY = 1;
 my $DONT_CHECK_DAY = 0;
-my $MAX_ROUNDS = 16;
+my $MAX_ROUNDS = 12;
 
 # if $exactness does not include last_name then TMP11 of 20090103jujoopen.in 
 # becomes Joseph A. Berry which is not right.   11 should be 10800 Xiao, Qiang.
