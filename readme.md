@@ -2,18 +2,18 @@
 
 The AGA Ratings scripts have two parts to run and fully update information. These scripts are the first half of the process. These perform first pass inspections for rating tournaments and then formatting and adding to the AGAGD. 
 
-Ratings checks:
+Ratings checks:  
 *Current Membership checks  
 *Unpaid Memberships  
 *Name checks against DB  
 *Too many rounds/komi/handicap  
 
 ## Setup AGA-Ratings Script
-Open presults.pl and look for 'getdbiconnection()'
-Fill in $dsn, $user, $password
-
-Add tournaments to 'tournaments' folder
-Files are results.txt files renamed to 'results.in'
+Open presults.pl and look for 'getdbiconnection  
+Fill in $dsn, $user, $password  
+  
+Add tournaments to 'tournaments' folder  
+Files are results.txt files renamed to 'results.in'  
 
 *Help: -h*
 ```$ ./presults.pl -h
@@ -34,9 +34,9 @@ Files are results.txt files renamed to 'results.in'
 
 Skip the first section with games and round information, look after $VAR1
 $VAR1 has basic tournament information, diagnostics come after 
-Run first to check issues, check name and location is displayed correctly.
-Tournament name is not displayed: File needs to have "TOURNEY" before tournament name
-Location is not displayed: location='Seattle, WA' is not in the header information
+Run first to check issues, check name and location is displayed correctly.  
+Tournament name is not displayed: File needs to have "TOURNEY" before tournament name  
+Location is not displayed: location='Seattle, WA' is not in the header information  
 
 >$ ./presults -n 0 tourneyDate.in  
 
