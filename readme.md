@@ -29,7 +29,7 @@ Files are results.txt files renamed to 'results.in'
 ./presults.pl: no filename
 ```
 
-##Add Tournaments
+## Add Tournaments
 >$ ./presults tourneyDate.in
 
 Skip the first section with games and round information, look after $VAR1
