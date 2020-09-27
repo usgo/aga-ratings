@@ -3,10 +3,10 @@
 The AGA Ratings scripts have two parts to run and fully update information. These scripts are the first half of the process. These perform first pass inspections for rating tournaments and then formatting and adding to the AGAGD. 
 
 Ratings checks:
-*Current Membership checks
-*Unpaid Memberships
-*Name checks against DB
-*Too many rounds/komi/handicap
+*Current Membership checks  
+*Unpaid Memberships  
+*Name checks against DB  
+*Too many rounds/komi/handicap  
 
 ## Setup AGA-Ratings Script
 Open presults.pl and look for 'getdbiconnection()'
