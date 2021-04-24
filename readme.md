@@ -1,6 +1,6 @@
 ## AGA Ratings Scripts - Perl Scripts
 
-The AGA Ratings scripts have two parts to run and fully update information. These scripts are the first half of the process. These perform first pass inspections for rating tournaments and then formatting and adding to the AGAGD. 
+The AGA Ratings scripts have two parts to run and fully update information. These scripts are the first half of the process. These perform first pass inspections for rating tournaments and then formatting and adding to the AGAGD.
 
 Ratings checks:  
 *Current Membership checks  
@@ -11,9 +11,11 @@ Ratings checks:
 ## Setup AGA-Ratings Script
 Open presults.pl and look for 'getdbiconnection  
 Fill in $dsn, $user, $password  
-  
+
 Add tournaments to 'tournaments' folder  
 Files are results.txt files renamed to 'results.in'  
+
+Requires ```libdbd-mysql-perl libdbi-perl``` libraries to run
 
 *Help: -h*
 ```$ ./presults.pl -h
@@ -33,14 +35,14 @@ Files are results.txt files renamed to 'results.in'
 >$ ./presults tourneyDate.in
 
 Skip the first section with games and round information, look after $VAR1
-$VAR1 has basic tournament information, diagnostics come after 
+$VAR1 has basic tournament information, diagnostics come after
 Run first to check issues, check name and location is displayed correctly.  
 Tournament name is not displayed: File needs to have "TOURNEY" before tournament name  
 Location is not displayed: location='Seattle, WA' is not in the header information  
 
 >$ ./presults -n 0 tourneyDate.in  
 
-This will add the tournament to the database and it will show on the AGAGD. Tournament should list name, city, state, total players, rounds, and show 00-00-0000 for rated date. 
+This will add the tournament to the database and it will show on the AGAGD. Tournament should list name, city, state, total players, rounds, and show 00-00-0000 for rated date.
 
 >$ ./presults -r -n 0 tourneyDate.in
 
